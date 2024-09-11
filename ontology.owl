@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/ontology#"
+     xml:base="http://example.org/ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ontology="http://example.org/ontology#">
+    <owl:Ontology rdf:about="http://example.org/ontology">
+        <rdfs:comment>An ontology to extend Activity Streams with additional properties for Cartago artifacts and system notifications</rdfs:comment>
+        <rdfs:label>Custom Notification Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontology#hasAnnotation -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontology#hasAnnotation">
+        <rdfs:domain rdf:resource="http://example.org/ontology#Artifact"/>
+        <rdfs:range rdf:resource="http://example.org/ontology#Annotation"/>
+        <rdfs:comment>Associates an artifact with a Cartago annotation</rdfs:comment>
+        <rdfs:label>has Annotation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontology#hasLogicalTimestamp -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontology#hasLogicalTimestamp">
+        <rdfs:domain rdf:resource="http://example.org/ontology#VectorClock"/>
+        <rdfs:range rdf:resource="http://example.org/ontology#LogicalTimestamp"/>
+        <rdfs:comment>Associates a vector clock with its logical timestamps</rdfs:comment>
+        <rdfs:label>has Logical Timestamp</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontology#hasObservableProperty -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontology#hasObservableProperty">
+        <rdfs:domain rdf:resource="http://example.org/ontology#Artifact"/>
+        <rdfs:range rdf:resource="http://example.org/ontology#ObservableProperty"/>
+        <rdfs:comment>Associates a Cartago Artifact with an observable property</rdfs:comment>
+        <rdfs:label>has Observable Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontology#hasRoomName -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontology#hasRoomName">
+        <rdfs:domain rdf:resource="http://example.org/ontology#Room"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/ontology#hasVectorClock -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/ontology#hasVectorClock">
+        <rdfs:domain rdf:resource="http://example.org/ontology#ObservableProperty"/>
+        <rdfs:range rdf:resource="http://example.org/ontology#VectorClock"/>
+        <rdfs:comment>Associates an event with a vector clock</rdfs:comment>
+        <rdfs:label>has Vector Clock</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontology#hasRoomName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontology#hasRoomName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontology#roomName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontology#roomName">
+        <rdfs:domain rdf:resource="http://example.org/ontology#Room"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name of the room</rdfs:comment>
+        <rdfs:label>Room Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontology#source -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontology#source">
+        <rdfs:domain rdf:resource="http://example.org/ontology#LogicalTimestamp"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The source of the logical timestamp</rdfs:comment>
+        <rdfs:label>Source</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/ontology#value -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/ontology#value">
+        <rdfs:domain rdf:resource="http://example.org/ontology#LogicalTimestamp"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>The value of the logical timestamp</rdfs:comment>
+        <rdfs:label>Value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontology#Annotation -->
+
+    <owl:Class rdf:about="http://example.org/ontology#Annotation">
+        <rdfs:comment>An annotation used in the Cartago framework</rdfs:comment>
+        <rdfs:label>Cartago Annotation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#Artifact -->
+
+    <owl:Class rdf:about="http://example.org/ontology#Artifact">
+        <rdfs:comment>A Cartago Artifact, a first-class object in the Cartago framework</rdfs:comment>
+        <rdfs:label>Cartago Artifact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#LogicalTimestamp -->
+
+    <owl:Class rdf:about="http://example.org/ontology#LogicalTimestamp">
+        <rdfs:comment>A timestamp representing logical time in a VectorClock</rdfs:comment>
+        <rdfs:label>Logical Timestamp</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#ObservableProperty -->
+
+    <owl:Class rdf:about="http://example.org/ontology#ObservableProperty">
+        <rdfs:comment>A property of an artifact that can be observed by agents</rdfs:comment>
+        <rdfs:label>Observable Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#Room -->
+
+    <owl:Class rdf:about="http://example.org/ontology#Room">
+        <rdfs:comment>A room in a building where events are observed</rdfs:comment>
+        <rdfs:label>Room</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#VectorClock -->
+
+    <owl:Class rdf:about="http://example.org/ontology#VectorClock">
+        <rdfs:comment>A vector clock associated with an event, used for tracking causality in distributed systems</rdfs:comment>
+        <rdfs:label>Vector Clock</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ontology#fallDetection -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontology#fallDetection">
+        <rdf:type rdf:resource="http://example.org/ontology#ObservableProperty"/>
+        <hasVectorClock rdf:resource="http://example.org/ontology#fallDetectionClock"/>
+        <roomName>3</roomName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontology#fallDetectionClock -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontology#fallDetectionClock">
+        <rdf:type rdf:resource="http://example.org/ontology#VectorClock"/>
+        <hasLogicalTimestamp rdf:resource="http://example.org/ontology#fallDetectionTimestamp1"/>
+        <hasLogicalTimestamp rdf:resource="http://example.org/ontology#fallDetectionTimestamp2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontology#fallDetectionTimestamp1 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontology#fallDetectionTimestamp1">
+        <rdf:type rdf:resource="http://example.org/ontology#LogicalTimestamp"/>
+        <source>r3</source>
+        <value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/ontology#fallDetectionTimestamp2 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/ontology#fallDetectionTimestamp2">
+        <rdf:type rdf:resource="http://example.org/ontology#LogicalTimestamp"/>
+        <source>o3</source>
+        <value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://example.org/ontology#hasRoomName">
+        <rdfs:label>has Room Name</rdfs:label>
+        <rdfs:comment>Associates a room with its name</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+
